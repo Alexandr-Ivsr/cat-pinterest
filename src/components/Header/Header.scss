@@ -15,16 +15,21 @@
   }
 
   &__link {
-    padding: 23px 18px;
+    padding: 22px 18px;
     font-size: 14px;
-    line-height: 21px;
+    line-height: 1.5;
     letter-spacing: 0.25px;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
-    transition: .6 opacity ease-in-out;
+    transition: .3s all ease-in-out;
 
-    &:hover {
-      opacity: .4;
+    &_active {
+      background-color: #1E88E5;
+      color: #FFFFFF;
+    }
+
+    &:hover, &:focus {
+      color: #FFFFFF;
     }
   }
 }

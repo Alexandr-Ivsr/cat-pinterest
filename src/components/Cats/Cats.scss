@@ -18,7 +18,7 @@
     }
 
     @media (min-width: 768px) {
-      grid-template-columns: repeat(3, 225px);
+      grid-template-columns: repeat(3, 1fr);
     }
 
     @media (min-width: 1024px) {
@@ -29,19 +29,18 @@
       grid-template-columns: repeat(5, 225px);
       gap: 48px;
     }
-
   }
 
   &__button-append {
     padding: 0;
     border: none;
     background-color: transparent;
-    line-height: 21px;
+    line-height: 1.5;
     letter-spacing: 0.25px;
     cursor: pointer;
     transition: .3s all ease-in-out;
 
-    &:hover {
+    &:hover, &:focus {
       opacity: .6;
     }
   }
