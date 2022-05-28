@@ -1,7 +1,6 @@
 import React from 'react';
 import './Card.scss';
 import catImage from '../../images/cat2.png';
-import likeIcon from '../../images/like-icon.svg';
 
 const Card = () => {
   return (

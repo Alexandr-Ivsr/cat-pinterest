@@ -8,6 +8,12 @@
     display: flex;
     gap: 16px;
     justify-content: center;
+
+    @media (width: 768px) {
+      padding: 0 0 0 62px;
+      justify-content: flex-start;
+      gap: 12px;
+    }
   }
 
   &__link {

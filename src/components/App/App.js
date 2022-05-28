@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.scss';
 import Header from '../Header/Header';
 import Cats from '../Cats/Cats';
+import FavouriteCats from '../FavoriteCats/FavoriteCats';
 
 function App() {
   return (
@@ -11,6 +12,10 @@ function App() {
         <Route
           path="/"
           element={<Cats />}
+        />
+        <Route
+          path="/liked-cats"
+          element={<FavouriteCats />}
         />
       </Routes>
     </div>
