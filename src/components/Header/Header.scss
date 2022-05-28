@@ -1,0 +1,35 @@
+.header {
+  width: 100%;
+  background-color: #2196F3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
+
+  &__links {
+    padding-left: 22px;
+    display: flex;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+      padding-left: 62px;
+      justify-content: flex-start;
+    }
+  }
+
+  &__link {
+    padding: 22px 18px;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.25px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    transition: .3s all ease-in-out;
+
+    &_active {
+      background-color: #1E88E5;
+      color: #FFFFFF;
+    }
+
+    &:hover, &:focus {
+      color: #FFFFFF;
+    }
+  }
+}
