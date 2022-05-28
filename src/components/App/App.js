@@ -1,8 +1,18 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.scss';
+import Header from '../Header/Header';
+import Cats from '../Cats/Cats';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={<Cats />}
+        />
+      </Routes>
     </div>
   );
 }

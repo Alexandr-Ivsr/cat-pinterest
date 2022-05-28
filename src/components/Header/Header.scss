@@ -1,0 +1,25 @@
+.header {
+  width: 100%;
+  background-color: #2196F3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
+
+  &__links {
+    padding: 22px 0;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.25px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    transition: .6 opacity ease-in-out;
+
+    &:hover {
+      opacity: .4;
+    }
+  }
+}
