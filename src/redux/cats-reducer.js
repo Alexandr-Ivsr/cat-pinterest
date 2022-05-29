@@ -1,3 +1,5 @@
+import { catsApi } from "../utils/api";
+
 const GET_CATS = "GET_CATS";
 
 const initialState = {
@@ -8,6 +10,18 @@ export const getCatsAction = (payload) => {
   return {
     type: GET_CATS,
     payload,
+  }
+}
+
+export const getCatsAsync = () => {
+  return function(dispatch) {
+    catsApi.getCats()
+      .then((res) => {
+        dispatch(getCatsAction(res.data));
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 }
 

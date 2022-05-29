@@ -1,8 +1,11 @@
 import React from 'react';
 import './Cats.scss';
 import Card from '../Card/Card';
+import { useDispatch } from 'react-redux';
 
 const AllCats = () => {
+  const dispatch = useDispatch();
+
   return (
     <article className="cats">
       <div className="cats__cards-wrapper">
