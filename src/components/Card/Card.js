@@ -1,10 +1,10 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import './Card.scss';
-import { addLikeAction } from '../../redux/likedCats-reducer';
-import { showLikedCard } from '../../redux/cats-reducer';
+import { addLikeAction, deleteFromLikedAction } from '../../redux/likedCats-reducer';
+import { showLikedCardAction, removeLikeAction } from '../../redux/cats-reducer';
 
-const Card = ({ card}) => {
+const Card = ({ card }) => {
   const dispatch = useDispatch();
 
   const handleLikeButton = () => {
@@ -14,7 +14,13 @@ const Card = ({ card}) => {
       isLiked: true,
     }));
 
-    dispatch(showLikedCard(card.id))
+    dispatch(showLikedCardAction(card.id))
+  }
+
+  const handleDislikeButton = () => {
+    dispatch(removeLikeAction(card.id));
+    dispatch(deleteFromLikedAction(card.id));
+
   }
 
   return (
@@ -22,7 +28,7 @@ const Card = ({ card}) => {
       <img className="card__image" src={card?.url} alt="картинка с котиком" />
       <button
         className={card.isLiked ? "card__button-like card__button-like_active" : "card__button-like"}
-        onClick={handleLikeButton}
+        onClick={card.isLiked ? handleDislikeButton : handleLikeButton}
       >
       </button>
     </div>
