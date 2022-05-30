@@ -42,5 +42,10 @@
     &:hover, &:focus {
       background-image: url("../../images/like-hover.svg");
     }
+
+    &_active {
+    background-image: url("../../images/like-icon-active.svg");
+
+    }
   }
 }
