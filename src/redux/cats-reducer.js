@@ -3,9 +3,11 @@ import { catsApi } from "../utils/api";
 const GET_CATS = "GET_CATS";
 const SHOW_LIKE = "SHOW_LIKE";
 const REMOVE_LIKE = "REMOVE_LIKE";
+const CHANGE_STATUS = "CHANGE_STATUS";
 
 const initialState = {
   cats: [],
+  status: 'pending',
 }
 
 export const getCatsAction = (payload) => {
@@ -29,11 +31,20 @@ export const removeLikeAction = (payload) => {
   }
 }
 
+export const changeStatusAction = (payload) => {
+  return {
+    type: CHANGE_STATUS,
+    payload,
+  }
+}
+
 export const getCatsAsync = () => {
   return function (dispatch) {
+    dispatch(changeStatusAction('loading'));
     catsApi.getCats()
       .then((res) => {
         dispatch(getCatsAction(res.data));
+        dispatch(changeStatusAction('pending'));
       })
       .catch((err) => {
         console.log(err);
@@ -69,6 +80,9 @@ export const catsReducer = (state = initialState, action) => {
           }
         })
       }
+
+    case CHANGE_STATUS:
+      return { ...state, status: action.payload }
 
     default:
       return state;
