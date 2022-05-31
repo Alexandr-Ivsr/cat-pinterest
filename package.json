@@ -1,5 +1,6 @@
 {
   "name": "cat-pinterest",
+  "homepage": "https://alexandr-ivsr.github.io/cat-pinterest/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
