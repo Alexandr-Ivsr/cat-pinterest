@@ -7,24 +7,21 @@ import Preloader from '../Preloader/Preloader';
 
 const Cats = () => {
   const dispatch = useDispatch();
-  const [cats, setCats] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const catsArr = useSelector((state) => state.cats.cats);
+  const status = useSelector((state) => state.cats.status)
+  const [statusLoading, setStatusLoading] = useState(status);
+  const [cats, setCats] = useState([]);
+
+
 
   useEffect(() => {
     setCats(catsArr);
+    setStatusLoading(status);
 
-  }, [catsArr])
+  }, [catsArr, status]);
 
   const handleButtonAppend = () => {
-    setIsLoading(true);
-    try {
-      dispatch(getCatsAsync());
-      setIsLoading(false);
-    }
-    catch (err) {
-      console.log(err);
-    }
+    dispatch(getCatsAsync());
   }
 
   return (
@@ -34,8 +31,9 @@ const Cats = () => {
           <Card key={item.id} card={item} />
         ))}
       </div>
-      {isLoading && <Preloader />}
-      {!isLoading && <button className="cats__button-append" onClick={handleButtonAppend}>... загружаем еще котиков ...</button>}
+      {statusLoading === 'loading' ? <Preloader /> : (
+        <button className="cats__button-append" onClick={handleButtonAppend}>... загружаем еще котиков ...</button>
+      )}
     </article>
   );
 };
